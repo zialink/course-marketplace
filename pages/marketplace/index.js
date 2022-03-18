@@ -1,10 +1,11 @@
+import { useEthPrice } from "@components/hooks/useEthPrice";
 import { useAccount } from "@components/hooks/web3/useAccount";
 import { useNetwork } from "@components/hooks/web3/useNetwork";
 import { Button } from "@components/ui/common";
 import { CourseCard, CourseList } from "@components/ui/course";
 import { BaseLayout } from "@components/ui/layout";
 import { OrderModal } from "@components/ui/order";
-import { WalletBar } from "@components/ui/web3";
+import { EthRates, WalletBar } from "@components/ui/web3";
 import { getAllCourses } from "@content/courses/fetcher";
 import { useState } from "react";
 
@@ -12,10 +13,13 @@ export default function Marketplace({ courses }) {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const { account } = useAccount();
   const { network } = useNetwork();
+  const { eth } = useEthPrice();
+  console.log("data: ", eth.perItem);
   return (
     <>
       <div>
         <WalletBar address={account.data} network={network} />
+        <EthRates eth={eth.data} perItem={eth.perItem} />
       </div>
       <CourseList courses={courses}>
         {(course) => (
