@@ -3,7 +3,7 @@ import { useWeb3 } from "@components/providers";
 export default function WalletBar({ address, network }) {
   const { requireInstall } = useWeb3();
   return (
-    <section className="my-10 rounded-lg bg-indigo-600 text-white">
+    <section className="mt-10 rounded-lg bg-indigo-600 text-white">
       <div className="p-8">
         <h1 className="text-2xl">Hello, {address}</h1>
         <h2 className="subtitle mb-5 text-xl">

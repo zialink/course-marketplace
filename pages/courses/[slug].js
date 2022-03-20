@@ -37,7 +37,6 @@ export function getStaticProps({ params }) {
   const { data } = getAllCourses();
 
   const course = data.filter((c) => c.slug === params.slug)[0];
-  console.log(course);
 
   return {
     props: {
