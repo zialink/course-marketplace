@@ -10,7 +10,7 @@ const NETWORKS = {
   5: "Goerli Test Network",
   42: "Kovan Test Network",
   56: "Binance Smart Chain",
-  1337: "Ganache",
+  5777: "Ganache",
 };
 
 const targetChainId = process.env.NEXT_PUBLIC_TARGET_CHAIN_ID;
@@ -47,8 +47,8 @@ export const createUseNetwork = (web3, provider) => () => {
             params: [
               {
                 chainId: `${chainToHex}`,
-                chainName: "Ganache",
-                rpcUrls: ["http://127.0.0.1:8545"] /* ... */,
+                chainName: `NETWORKS[parseInt(chainToHex, 16)]`,
+                rpcUrls: ["http://127.0.0.1:7545"] /* ... */,
               },
             ],
           });
